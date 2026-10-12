@@ -137,33 +137,34 @@ figcaption .label{color:var(--yellow);font-size:.95rem}
 .sample{font-family:var(--body);line-height:1.4;background:#fff;color:#111}
 .sample .s-brand{font:800 1.15rem/1 var(--display);letter-spacing:.04em;text-transform:uppercase}
 .sample .s-split{display:grid}
-/* ---------- restaurant: menu and order screen ---------- */
-.s-rest{--g:#0E2119;--g2:#17352A;--cream:#F8F2E2;--gold:#E8B44A;background:var(--cream);color:#1B150C}
-.s-rest .r-bar{display:flex;align-items:center;gap:.6rem;padding:.7rem 1rem;background:var(--g);color:var(--cream)}
-.s-rest .r-bar .s-brand{margin-right:auto}
-.s-rest .r-chip{display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;font-weight:700;border:1px solid rgba(248,242,226,.45);border-radius:999px;padding:.2rem .5rem}
-.s-rest .r-chip::before{content:"";width:6px;height:6px;border-radius:50%;background:#5FD08A}
-.s-rest .r-cta{background:var(--gold);color:#1B150C;font-weight:800;font-size:.72rem;padding:.35rem .7rem;border-radius:5px}
-.s-rest .s-split{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr)}
-.s-rest .r-menu{padding:.9rem 1rem 1.1rem}
-.s-rest .r-sec{font:800 1rem/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:#7A6433;border-bottom:2px solid #E0D3B4;padding-bottom:.25rem;margin:.6rem 0 .1rem}
-.s-rest .r-sec:first-child{margin-top:0}
-.s-rest .r-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:.5rem;padding:.42rem 0;border-bottom:1px solid #EBE2CC}
-.s-rest .r-row:last-child{border-bottom:0}
-.s-rest .r-n{font-weight:700;font-size:.82rem}
-.s-rest .r-n em{display:block;font-style:normal;font-weight:400;font-size:.72rem;color:#6B5C44}
-.s-rest .r-p{font:800 1rem/1 var(--display);letter-spacing:.02em}
-.s-rest .r-tag{display:inline-block;font-size:.58rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--gold);color:#1B150C;border-radius:3px;padding:.05rem .3rem;margin-left:.3rem;vertical-align:1px}
-.s-rest .r-cart{background:var(--g);color:var(--cream);padding:.9rem .95rem}
-.s-rest .r-cart-h{font:800 1.05rem/1 var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
-.s-rest .r-line{display:flex;justify-content:space-between;gap:.5rem;font-size:.76rem;padding:.3rem 0;border-bottom:1px solid rgba(248,242,226,.18)}
-.s-rest .r-tot{display:flex;justify-content:space-between;align-items:baseline;margin-top:.5rem;font-size:.76rem;font-weight:700}
-.s-rest .r-tot b{font:800 1.5rem/1 var(--display)}
-.s-rest .r-btn{display:block;text-align:center;background:var(--gold);color:#1B150C;font-weight:800;font-size:.8rem;padding:.5rem;border-radius:6px;margin-top:.6rem}
-.s-rest .r-note{margin:.45rem 0 0;font-size:.68rem;color:rgba(248,242,226,.75)}
-.s-rest .r-add{margin-top:.8rem;padding-top:.7rem;border-top:1px solid rgba(248,242,226,.18);display:flex;flex-wrap:wrap;gap:.35rem}
-.s-rest .r-add-h{width:100%;font:800 .8rem/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:rgba(248,242,226,.7);margin-bottom:.1rem}
-.s-rest .r-pill{font-size:.68rem;font-weight:700;border:1px solid rgba(248,242,226,.4);border-radius:999px;padding:.2rem .5rem;color:var(--cream)}
+/* ---------- restaurant: menu screen ---------- */
+.s-rest{--g:#0E2119;--cream:#F8F2E2;--gold:#E8B44A;--brown:#6A5A3E;background:var(--cream);color:#1B150C}
+.s-rest .r-head{background:var(--g);color:var(--cream)}
+.s-rest .r-head-top{display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.8rem 1.1rem .7rem}
+.s-rest .r-head .s-brand{font-size:1.45rem}
+.s-rest .r-head-nav{display:flex;flex-wrap:wrap;gap:.35rem 1.1rem;padding:.5rem 1.1rem;border-top:1px solid rgba(248,242,226,.18)}
+.s-rest .r-head-nav i{font-style:normal;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#C2B9A4}
+.s-rest .r-res{margin-left:auto;color:var(--gold)!important}
+.s-rest .r-chip{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:700;border:1px solid rgba(248,242,226,.4);border-radius:999px;padding:.22rem .6rem}
+.s-rest .r-chip::before{content:"";width:6px;height:6px;border-radius:50%;background:#6FD494}
+.s-rest .r-body{display:grid;grid-template-columns:1fr 1px 1fr;gap:0 1.4rem;padding:1.1rem 1.2rem 1rem;background:
+ linear-gradient(var(--cream),var(--cream)) padding-box}
+.s-rest .r-col:nth-of-type(1){padding-right:1.3rem;border-right:1px solid #E2D6B9}
+.s-rest .r-col:nth-of-type(2){grid-column:3}
+.s-rest .r-sec{font:800 .95rem/1 var(--display);letter-spacing:.16em;text-transform:uppercase;color:var(--brown);margin:1.1rem 0 .5rem;display:flex;align-items:center;gap:.6rem}
+.s-rest .r-col:first-child .r-sec:first-child,.s-rest .r-col .r-board+.r-sec{margin-top:0}
+.s-rest .r-sec::after{content:"";flex:1;height:1px;background:#DFD2B2}
+.s-rest .r-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:.4rem .7rem;padding:.33rem 0}
+.s-rest .r-n{font-weight:700;font-size:.84rem}
+.s-rest .r-p{font:800 1.05rem/1 var(--display);letter-spacing:.02em}
+.s-rest .r-d{grid-column:1/-1;display:block;font-style:normal;font-size:.735rem;line-height:1.45;color:#6B5C44;max-width:34em}
+.s-rest .r-board{background:var(--g);color:var(--cream);border-radius:9px;padding:.8rem .85rem;display:grid;gap:.18rem;position:relative}
+.s-rest .r-board-k{font:800 .78rem/1 var(--display);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.s-rest .r-board-n{font:800 1.5rem/1 var(--display);letter-spacing:.02em;padding-right:2.6rem}
+.s-rest .r-board-d{font-style:normal;font-size:.74rem;line-height:1.5;color:#CDC3AE}
+.s-rest .r-board-p{position:absolute;top:.7rem;right:.85rem;font:800 1.5rem/1 var(--display);color:var(--gold)}
+.s-rest .r-foot{display:flex;flex-wrap:wrap;gap:.3rem 1.6rem;padding:.7rem 1.2rem;border-top:1px solid #E2D6B9;font-size:.715rem;font-weight:600;color:#6B5C44}
+@media (max-width:640px){.s-rest .r-body{grid-template-columns:minmax(0,1fr)}.s-rest .r-col:nth-of-type(1){padding-right:0;border-right:0}.s-rest .r-col:nth-of-type(2){grid-column:1}.s-rest .r-sections{display:none}}
 /* ---------- contractor: quote request screen ---------- */
 .s-con{--navy:#10233E;--or:#B8470F;--or-lt:#F07A2E;background:#EEF2F7;color:var(--navy)}
 .s-con .c-top{display:flex;align-items:center;gap:.7rem;padding:.7rem 1rem;background:var(--navy);color:#fff}
