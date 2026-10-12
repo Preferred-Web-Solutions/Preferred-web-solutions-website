@@ -191,6 +191,33 @@ figcaption .label{color:var(--yellow);font-size:.95rem}
 .s-con .c-area b{display:block;font:800 1rem/1 var(--display);letter-spacing:.03em;text-transform:uppercase;color:var(--or-lt)}
 .s-con .c-area small{display:block;font-size:.7rem;color:#C3D2E6;margin-top:.2rem}
 .s-con .c-fine{margin:.1rem 0 0;font-size:.68rem;line-height:1.45;color:#5B6E89}
+
+/* ---------- barbershop: first screen ---------- */
+.solo{margin:clamp(1.8rem,5vw,3.4rem) 0 0}
+.s-barb{--bone:#F0E8DA;--blk:#141210;--red:#B3261E;background:var(--bone);color:var(--blk)}
+.s-barb .b-bar{display:flex;align-items:center;gap:1rem;padding:.7rem 1.1rem;background:var(--blk);color:var(--bone)}
+.s-barb .b-bar .s-brand{margin-right:auto}
+.s-barb .b-nav{font-size:.74rem;font-weight:700;color:#BCB2A3}
+.s-barb .b-book{background:var(--bone);color:var(--blk);font-weight:800;font-size:.72rem;padding:.35rem .75rem;border-radius:4px}
+.s-barb .b-hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(1rem,3vw,2.2rem);padding:clamp(1.1rem,3vw,2rem) 1.1rem clamp(1rem,2.5vw,1.6rem)}
+.s-barb .b-eye{display:block;font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#6A5B47}
+.s-barb .b-h{font:800 clamp(2.6rem,7vw,5.2rem)/.86 var(--display);letter-spacing:.01em;text-transform:uppercase;margin:.45rem 0 0}
+.s-barb .b-sub{margin:.7rem 0 0;font-size:.86rem;max-width:24em;color:#4A4034}
+.s-barb .b-cta{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem;margin-top:1rem}
+.s-barb .b-btn{background:var(--red);color:#fff;font-weight:800;font-size:.82rem;padding:.55rem 1.1rem;border-radius:5px}
+.s-barb .b-ghost{font-size:.76rem;font-weight:700;color:#4A4034;border-bottom:2px solid var(--red);padding-bottom:1px}
+.s-barb .b-card{background:var(--blk);color:var(--bone);border-radius:10px;padding:.85rem .9rem;align-self:center}
+.s-barb .b-card-h{font:800 1.05rem/1 var(--display);letter-spacing:.09em;text-transform:uppercase;color:#E8C06A;margin-bottom:.5rem}
+.s-barb .b-slot{display:flex;align-items:baseline;gap:.6rem;padding:.4rem 0;border-bottom:1px solid rgba(240,232,218,.18)}
+.s-barb .b-slot.last{border-bottom:0}
+.s-barb .b-t{font:800 1.3rem/1 var(--display);min-width:3.4rem}
+.s-barb .b-who{font-size:.72rem;color:#BCB2A3}
+.s-barb .b-slot.last .b-who{color:#E8C06A;font-weight:700}
+.s-barb .b-card-f{margin:.6rem 0 0;font-size:.68rem;color:#9E9484}
+.s-barb .b-prices{display:flex;flex-wrap:wrap;gap:.3rem 2rem;background:var(--blk);color:var(--bone);padding:.7rem 1.1rem;font-size:.78rem}
+.s-barb .b-prices span{display:inline-flex;align-items:baseline;gap:.45rem;font:800 1.15rem/1 var(--display)}
+.s-barb .b-prices b{font:700 .72rem/1 var(--body);letter-spacing:.06em;text-transform:uppercase;color:#BCB2A3}
+@media (max-width:640px){.s-barb .b-hero{grid-template-columns:minmax(0,1fr)}.s-barb .b-nav{display:none}}
 @media (max-width:620px){.sample .s-split{grid-template-columns:minmax(0,1fr)!important}.s-con .c-two{grid-template-columns:1fr}}
 
 /* rate card */
