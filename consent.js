@@ -31,7 +31,10 @@
   }
   function hide(){root.hidden=true;if(opener){try{opener.focus()}catch(e){}opener=null}}
   function init(){
-    document.body.appendChild(root);
+    /* right after the skip link so it is the next Tab stop */
+    var skip=document.querySelector('.skip');
+    if(skip&&skip.parentNode===document.body)document.body.insertBefore(root,skip.nextSibling);
+    else document.body.insertBefore(root,document.body.firstChild);
     var all=root.querySelector('#c-all'),rej=root.querySelector('#c-rej'),man=root.querySelector('#c-man'),prefs=root.querySelector('#consent-prefs');
     all.addEventListener('click',function(){save(true,true);hide()});
     rej.addEventListener('click',function(){save(false,false);hide()});
