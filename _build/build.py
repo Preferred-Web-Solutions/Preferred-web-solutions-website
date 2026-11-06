@@ -37,7 +37,7 @@ def header(path):
         links += f'<a href="{href}"{cur}>{label}</a>'
     return f"""<header class="site-header"><div class="wrap bar"><a class="brand" href="index.html"><img src="logo.png" alt="" width="36" height="36">Preferred Web Solutions</a>
 <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav">Menu</button>
-<nav class="nav" id="site-nav" aria-label="Main">{links}<a class="tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a><a class="btn btn--yellow btn--sm" href="contact.html">{CTA}</a></nav></div></header>
+<nav class="nav" id="site-nav" aria-label="Main">{links}<a class="btn btn--yellow btn--sm" href="contact.html">{CTA}</a></nav></div></header>
 <main id="main">
 """
 
@@ -50,12 +50,12 @@ def footer():
 <p>Custom websites for restaurants and contractors. Built for your business, no templates, owned by you.</p>
 <a class="btn btn--yellow btn--sm foot-cta" href="contact.html">{CTA}</a></div>
 <div><h2>Pages</h2><ul><li><a href="index.html">Home</a></li><li><a href="samples.html">Samples</a></li><li><a href="pricing.html">How it works and pricing</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-<div><h2>Contact</h2><ul><li><a href="mailto:{EMAIL}">{EMAIL}</a></li><li><a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></li><li><a href="contact.html">Cincinnati, Ohio, and other cities</a></li></ul></div>
+<div><h2>Contact</h2><ul><li><a href="mailto:{EMAIL}">{EMAIL}</a></li><li><a href="contact.html">Cincinnati, Ohio, and other cities</a></li></ul></div>
 <div><h2>Legal</h2><ul><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms and conditions</a></li><li><a href="cookies.html">Cookie policy</a></li><li><a href="accessibility.html">Accessibility statement</a></li><li><a href="report.html">Report an issue</a></li><li><button type="button" data-cookie-settings>Cookie settings</button></li></ul></div>
 </div>
 <p class="legal-note">&copy; 2026 Preferred Web Solutions LLC. The sample sites shown here are for fictional businesses. Photos in the samples are for demonstration only.</p>
 </div></footer>
-<div class="callbar"><a class="btn btn--yellow" href="contact.html">{CTA}</a><a class="btn btn--call" href="tel:{PHONE_TEL}" aria-label="Call {PHONE_DISPLAY}">Call</a></div>
+<div class="callbar"><a class="btn btn--yellow" href="contact.html">{CTA}</a></div>
 <script src="consent.js"></script><script src="site.js"></script><script src="forms.js"></script>
 </body></html>
 """
@@ -108,7 +108,7 @@ def build_home():
     jsonld = json.dumps({
         "@context": "https://schema.org", "@type": "ProfessionalService",
         "name": "Preferred Web Solutions", "url": SITE + "/", "email": EMAIL,
-        "telephone": "+1-502-702-1752", "areaServed": "Cincinnati, Ohio, and other cities",
+        "areaServed": "Cincinnati, Ohio, and other cities",
         "description": "Custom websites for restaurants and contractors.",
     })
     body = f"""
@@ -271,7 +271,12 @@ def build_about():
 <p>Preferred Web Solutions exists to fix that. We design each site around the business behind it: its trade, its style and what the owner wants customers to do. You have a say in how it looks, and you own the result.</p>
 <p>We also stay after launch. We maintain your site, deal with problems when they come up, and sit down with you every 3 to 6 months to look at how it is doing.</p>
 </div>
-<!-- BIO_SLOT: owner bio and photo go here when provided -->
+<div class="owner"><h3>Meet the owner</h3>
+<p>I&rsquo;m Steven Embry, the owner of Preferred Web Solutions. I live in the Cincinnati area, and I started this company because so many good local restaurants and contractors either have no website or have one that looks like every other business on the same builder.</p>
+<p>I build each site myself, and I&rsquo;m the person you deal with from the first conversation to every check-in after launch. No hand-offs and no call center. If something on your site needs fixing, you email me and I reply within one business day.</p>
+<p>My goal is simple: give you a site that is made for your business, that you own, and that helps customers find you and reach you.</p>
+</div>
+<!-- PHOTO_SLOT: owner photo goes here when provided -->
 </div></section>
 <section class="sec sec--soft" aria-labelledby="how-h"><div class="wrap">
 <div class="sec-head"><span class="eyebrow">How we work</span><h2 id="how-h">Three things we promise.</h2></div>
@@ -297,7 +302,6 @@ def build_contact():
 <div><h2 style="font-size:1.6rem">Reach us directly</h2>
 <ul class="contact-list">
 <li><b>Email</b><div class="mail-row"><a href="mailto:{EMAIL}">{EMAIL}</a><button type="button" class="btn btn--sm" data-copy="{EMAIL}">Copy email</button></div></li>
-<li><b>Phone</b><a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></li>
 <li><b>Where we work</b><span>Cincinnati, Ohio, and other cities</span></li>
 </ul></div>
 <div>

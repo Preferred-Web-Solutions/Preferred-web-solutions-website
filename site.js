@@ -23,8 +23,16 @@
     window.addEventListener('resize',function(){if(window.innerWidth>900)setOpen(false,false)});
   }
   /* a new page opens at the top, except Back/Forward or a #hash link */
+  function top(){window.scrollTo(0,0);document.documentElement.scrollTop=0;if(document.body)document.body.scrollTop=0}
   try{
     var nt=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0];
-    if(!location.hash&&!(nt&&nt.type==='back_forward')){document.documentElement.scrollIntoView()}
+    var back=nt&&nt.type==='back_forward';
+    if(!location.hash&&!back){
+      if('scrollRestoration' in history)history.scrollRestoration='manual';
+      top();
+      document.addEventListener('DOMContentLoaded',top);
+      window.addEventListener('load',function(){top();setTimeout(top,60)});
+    }
+    window.addEventListener('pageshow',function(e){if(!e.persisted&&!location.hash&&!back)top()});
   }catch(e){}
 })();
