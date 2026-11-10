@@ -20,7 +20,7 @@
       var t=e.relatedTarget;
       if(t&&!hdr.contains(t))setOpen(false,false);
     });
-    window.addEventListener('resize',function(){if(window.innerWidth>900)setOpen(false,false)});
+    window.addEventListener('resize',function(){if(window.innerWidth>1060)setOpen(false,false)});
   }
   /* a new page opens at the top, except Back/Forward or a #hash link */
   function top(){window.scrollTo(0,0);document.documentElement.scrollTop=0;if(document.body)document.body.scrollTop=0}

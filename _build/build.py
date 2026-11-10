@@ -13,7 +13,7 @@ PHONE_TEL = "+15027021752"
 UPDATED = "2026-11-05"
 SAMPLES = "https://preferred-web-solutions.github.io/restaurant-samples"
 
-NAV = [("samples.html", "Samples"), ("pricing.html", "How it works"), ("about.html", "About"), ("contact.html", "Contact")]
+NAV = [("samples.html", "Samples"), ("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("about.html", "About"), ("contact.html", "Contact")]
 
 LEGAL_OLD = json.load(open(os.path.join(ROOT, "_build", "legal_old.json")))
 
@@ -49,7 +49,7 @@ def footer():
 <div><a class="brand" href="index.html"><img src="logo.png" alt="" width="36" height="36">Preferred Web Solutions</a>
 <p>Custom websites for restaurants and contractors. Built for your business, no templates, owned by you.</p>
 <a class="btn btn--yellow btn--sm foot-cta" href="contact.html">{CTA}</a></div>
-<div><h2>Pages</h2><ul><li><a href="index.html">Home</a></li><li><a href="samples.html">Samples</a></li><li><a href="pricing.html">How it works and pricing</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+<div><h2>Pages</h2><ul><li><a href="index.html">Home</a></li><li><a href="samples.html">Samples</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
 <div><h2>Contact</h2><ul><li><a href="mailto:{EMAIL}">{EMAIL}</a></li><li><a href="contact.html">Cincinnati, Ohio, and other cities</a></li></ul></div>
 <div><h2>Legal</h2><ul><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms and conditions</a></li><li><a href="cookies.html">Cookie policy</a></li><li><a href="accessibility.html">Accessibility statement</a></li><li><a href="report.html">Report an issue</a></li><li><button type="button" data-cookie-settings>Cookie settings</button></li></ul></div>
 </div>
@@ -160,7 +160,7 @@ def build_home():
 <li><h3>Review and launch</h3><p>We meet to go through the draft, make changes, and launch when you are happy.</p></li>
 <li><h3>We keep it up</h3><p>Maintenance and a check-in every 3 to 6 months keep your site current.</p></li>
 </ol>
-<p style="margin-top:2rem"><a class="link-arrow" href="pricing.html">How it works and pricing &rarr;</a></p>
+<p class="arrow-row"><a class="link-arrow" href="how-it-works.html">How it works &rarr;</a><a class="link-arrow" href="pricing.html">See pricing &rarr;</a></p>
 </div></section>
 
 <section class="sec sec--soft" aria-labelledby="where-h"><div class="wrap where">
@@ -204,8 +204,12 @@ def build_samples():
          "Open full sample websites for a diner, an upscale restaurant and a Mexican cantina from Preferred Web Solutions in Cincinnati. Contractor samples are in progress.", body)
 
 
-# ---------------------------------------------------------------- pricing
-def build_pricing():
+# ---------------------------------------------------------------- how it works
+def faq_html(faqs):
+    return "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in faqs)
+
+
+def build_how():
     faqs = [
         ("What do I need to give you?", "Your answers to our short questionnaire, plus photos, your menu or service details, hours, and contact information. We handle the design and the build."),
         ("Who owns my website?", "You do. You can still ask us to make edits, and we keep it maintained."),
@@ -214,11 +218,10 @@ def build_pricing():
         ("Do I have to be technical?", "No. You tell us what you want and we build it."),
         ("Which businesses do you work with?", "Restaurants and contractors, starting in the Cincinnati area. We also work with businesses in other cities, since your site is built online. Something else? Send a note and we will tell you if we can help."),
     ]
-    fq = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in faqs)
     body = f"""
 <div class="page-head"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">How it works</span></nav>
-<h1>How it works and pricing</h1>
-<p>A free sample first. Then a one-time build fee, a go-live fee, and a monthly fee for maintenance and check-ins.</p></div></div>
+<h1>How it works</h1>
+<p>A free sample first, so you can see your site before you commit to anything. Then four simple steps to launch.</p></div></div>
 
 <section class="sec" aria-labelledby="steps-h"><div class="wrap">
 <div class="sec-head"><span class="eyebrow">The process</span><h2 id="steps-h">Four steps from first call to launch.</h2></div>
@@ -227,10 +230,37 @@ def build_pricing():
 <li><h3>Tell us your style</h3><p>You fill out a short questionnaire about your colors, your photos and what you want your site to do.</p></li>
 <li><h3>Review and launch</h3><p>We build your site from your answers and meet to go through the draft. We make changes and launch when you are happy.</p></li>
 <li><h3>We keep it up</h3><p>Maintenance is covered by your monthly fee, with a check-in every 3 to 6 months to look at how the site is doing and plan updates.</p></li>
-</ol></div></section>
+</ol>
+<p class="arrow-row"><a class="link-arrow" href="pricing.html">See pricing &rarr;</a></p>
+</div></section>
 
-<section class="sec sec--soft" aria-labelledby="pricing-h"><div class="wrap">
-<div class="sec-head"><span class="eyebrow">Pricing</span><h2 id="pricing-h">Simple prices. A discount for our first five clients.</h2></div>
+<section class="sec sec--soft" aria-labelledby="faq-h"><div class="wrap">
+<div class="sec-head"><span class="eyebrow">Questions</span><h2 id="faq-h">What owners usually ask.</h2></div>
+<div class="faq">{faq_html(faqs)}</div>
+</div></section>
+
+<section class="sec sec--yellow band" aria-labelledby="cta-h"><div class="wrap"><h2 id="cta-h">Ready to see yours?</h2><p>Tell us about your business and we will show you a sample site for it.</p><a class="btn btn--ink" href="contact.html">{CTA}</a></div></section>
+"""
+    page("how-it-works.html", "How it works: from free sample to launch | Preferred Web Solutions",
+         "How Preferred Web Solutions builds a custom website for your restaurant or contracting business in four steps, starting with a free sample site.", body)
+
+
+# ---------------------------------------------------------------- pricing
+def build_pricing():
+    faqs = [
+        ("Is the sample site really free?", "Yes. We show you a sample before you commit to anything. You only pay if you decide to go ahead."),
+        ("When do I pay each fee?", "The build fee is paid once you sign the service agreement, before we start building. The go-live fee and your first monthly payment are due when you approve the finished site and are ready to launch."),
+        ("What does the monthly fee cover?", f'Keeping your site maintained, handling problems when they come up, and a check-in every 3 to 6 months to look at how the site is doing. If something breaks, email {EMAIL} and we reply within one business day.'),
+        ("What does a founding client agree to?", "Founding pricing is for our first five clients. In return, you give us a short written testimonial and let us show your site as an example of our work."),
+        ("Is there a written agreement?", "Yes. Every client signs a service agreement that sets out what is included, the fees and how payments work, before any work starts."),
+    ]
+    body = f"""
+<div class="page-head"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Pricing</span></nav>
+<h1>Pricing</h1>
+<p>A one-time build fee, a go-live fee, and a monthly fee for maintenance and check-ins. The sample site is free.</p></div></div>
+
+<section class="sec" aria-labelledby="pricing-h"><div class="wrap">
+<div class="sec-head"><span class="eyebrow">Plans</span><h2 id="pricing-h">Simple prices. A discount for our first five clients.</h2></div>
 <div class="plans">
 <article class="plan plan--feature dark" aria-labelledby="pl1"><div><span class="eyebrow" style="color:var(--yellow)">First 5 clients</span><h3 id="pl1">Founding client</h3></div>
 <dl class="led"><div><dt>Build</dt><dd>$150</dd></div><div><dt>Go live</dt><dd>$100</dd></div><div><dt>Monthly</dt><dd>$50 <small>/ month</small></dd></div></dl>
@@ -244,18 +274,18 @@ def build_pricing():
 <a class="btn btn--ink" href="contact.html">{CTA}</a></article>
 </div>
 <p class="refer"><b>Refer a business</b><span>Get $25 off one monthly invoice for each referral that signs up, applied in the month their site goes live.</span></p>
-<p class="fine">Prices are for the current offer. Full details are set out in a written service agreement.</p>
+<p class="fine">Prices are for the current offer. Full details are set out in a written service agreement. <a href="how-it-works.html">See how it works</a>.</p>
 </div></section>
 
-<section class="sec" aria-labelledby="faq-h"><div class="wrap">
-<div class="sec-head"><span class="eyebrow">Questions</span><h2 id="faq-h">What owners usually ask.</h2></div>
-<div class="faq">{fq}</div>
+<section class="sec sec--soft" aria-labelledby="faq-h"><div class="wrap">
+<div class="sec-head"><span class="eyebrow">Questions</span><h2 id="faq-h">Questions about pricing.</h2></div>
+<div class="faq">{faq_html(faqs)}</div>
 </div></section>
 
-<section class="sec sec--yellow band" aria-labelledby="cta-h"><div class="wrap"><h2 id="cta-h">Ready to see yours?</h2><p>Tell us about your business and we will show you a sample site for it.</p><a class="btn btn--ink" href="contact.html">{CTA}</a></div></section>
+<section class="sec sec--yellow band" aria-labelledby="cta-h"><div class="wrap"><h2 id="cta-h">See your site before you pay anything.</h2><p>Tell us about your business and we will show you a sample site for it.</p><a class="btn btn--ink" href="contact.html">{CTA}</a></div></section>
 """
-    page("pricing.html", "How it works and website pricing for restaurants and contractors | Preferred Web Solutions",
-         "How Preferred Web Solutions builds your site in four steps, with clear pricing: $150 build, $100 go live and $50 a month for founding clients.", body)
+    page("pricing.html", "Website pricing for restaurants and contractors | Preferred Web Solutions",
+         "Clear website pricing from Preferred Web Solutions: founding clients pay $150 to build, $100 to go live and $50 a month. Standard is $250, $250 and $100 a month.", body)
 
 
 # ---------------------------------------------------------------- about
@@ -374,12 +404,12 @@ def build_legal():
 
 
 def build_seo_files():
-    pages = ["", "samples.html", "pricing.html", "about.html", "contact.html", "privacy.html", "terms.html", "cookies.html", "accessibility.html", "report.html"]
+    pages = ["", "samples.html", "how-it-works.html", "pricing.html", "about.html", "contact.html", "privacy.html", "terms.html", "cookies.html", "accessibility.html", "report.html"]
     urls = "".join(f"<url><loc>{SITE}/{p}</loc><lastmod>{UPDATED}</lastmod></url>" for p in pages)
     open(os.path.join(ROOT, "sitemap.xml"), "w").write(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n')
     open(os.path.join(ROOT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
 
 
 if __name__ == "__main__":
-    build_home(); build_samples(); build_pricing(); build_about(); build_contact(); build_legal(); build_seo_files()
+    build_home(); build_samples(); build_how(); build_pricing(); build_about(); build_contact(); build_legal(); build_seo_files()
     print("built")

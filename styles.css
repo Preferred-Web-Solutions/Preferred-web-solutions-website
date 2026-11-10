@@ -40,6 +40,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .btn--sm{min-height:2.75rem;padding:.5rem 1.1rem;font-size:.95rem}
 .btn:disabled{opacity:.6;cursor:default}
 .link-arrow{display:inline-flex;align-items:center;min-height:2.75rem;font-weight:700}
+.arrow-row{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.5rem 1.75rem}
 
 /* header */
 .site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--ink);color:#fff;height:var(--header);box-shadow:0 1px 0 rgba(255,255,255,.12)}
@@ -47,7 +48,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .brand{display:flex;align-items:center;gap:.7rem;color:#fff;text-decoration:none;font:800 1.15rem/1 var(--display);letter-spacing:-.01em;margin-right:auto;white-space:nowrap;min-height:2.75rem}
 .brand img{width:36px;height:36px;border-radius:22%}
 .nav{display:flex;align-items:center;gap:.25rem}
-.nav a:not(.btn){color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;padding:.75rem .85rem;min-height:2.75rem;display:inline-flex;align-items:center;border-bottom:3px solid transparent}
+.nav a:not(.btn){white-space:nowrap;color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;padding:.75rem .85rem;min-height:2.75rem;display:inline-flex;align-items:center;border-bottom:3px solid transparent}
 .nav a:not(.btn):hover{border-bottom-color:var(--yellow)}
 .nav a[aria-current="page"]{border-bottom-color:var(--yellow)}
 .nav .btn{margin-left:.5rem}
@@ -57,7 +58,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .menu-btn{display:none;min-height:2.75rem;padding:.5rem 1rem;border:2px solid #fff;border-radius:var(--r);background:transparent;color:#fff;font-weight:700;cursor:pointer}
 .menu-btn[aria-expanded="true"]{background:#fff;color:var(--ink)}
 .nav .only-menu{display:none}
-@media (max-width:900px){
+@media (max-width:1060px){
   .menu-btn{display:inline-flex;align-items:center}
   .nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--ink);padding:.5rem var(--gutter) 1.25rem;border-top:1px solid rgba(255,255,255,.18)}
   .nav.open{display:flex}
