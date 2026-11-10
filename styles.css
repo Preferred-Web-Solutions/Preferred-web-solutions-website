@@ -315,6 +315,10 @@ form.card{display:grid;gap:1.25rem}
 .legal .card{margin-top:1.6rem}
 .back{display:inline-flex;align-items:center;min-height:2.75rem;min-width:2.75rem;margin-bottom:1rem;font-weight:700}
 
+/* fade in on scroll (site.js adds .rv-on only when motion is allowed) */
+.rv-on .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--rv-d,0ms)}
+.rv-on .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+@media (prefers-reduced-motion:reduce){.rv-on .rv{opacity:1;transform:none}}
 
 .owner{max-width:42rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--line,#d9d9d4)}.owner h3{font-size:1.5rem;margin:0 0 .75rem}.owner p{margin:0 0 1rem}
